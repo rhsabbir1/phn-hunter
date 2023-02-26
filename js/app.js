@@ -9,6 +9,14 @@ const displayPhones = phones => {
     const cardContainer = document.getElementById('card-container')
     cardContainer.innerHTML = '';
     phones = phones.slice(0 , 20)
+    const wearningText = document.getElementById('worning')
+
+    if(phones.length == 0){
+        wearningText.classList.remove('d-none')
+    }
+    else{
+        wearningText.classList.add('d-none')
+    }
     for (const phone of phones) {
         const {brand ,phone_name,image,slug} = phone;
         const ceratDiv = document.createElement('div')
@@ -35,6 +43,6 @@ document.getElementById('search-phone').addEventListener('click' , function(){
 
 loadPhones();
 
-git add .
-git commit -m"show search phn "
-git push
+// git add .
+// git commit -m"Error handling "
+// git push
