@@ -33,16 +33,27 @@ const displayPhones = phones => {
         `;
         cardContainer.appendChild(ceratDiv)
     }
+    loading(false)
 }
 
 document.getElementById('search-phone').addEventListener('click' , function(){
+    loading(true)
     const searchText = document.getElementById('search-field').value;
     loadPhones(searchText)
 })
 
+const loading =(isloading) =>{
+    const loaderSection = document.getElementById('loader')
+    if(isloading){
+        loaderSection.classList.remove('d-none')
+    }
+    else{
+        loaderSection.classList.add('d-none')
+    }
+}
 
-loadPhones();
+loadPhones('phone');
 
 // git add .
-// git commit -m"Error handling "
+// git commit -m"Add spinner "
 // git push
