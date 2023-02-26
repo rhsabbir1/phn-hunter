@@ -1,6 +1,5 @@
 const loadPhones = (searchText) => {
-        const URL2 = ` https://openapi.programming-hero.com/api/phones?search=${searchText}`
-    // const URL = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
+    const URL2 = ` https://openapi.programming-hero.com/api/phones?search=${searchText}`
     fetch(URL2)
         .then(res => res.json())
         .then(data => displayPhones(data.data))
@@ -8,17 +7,17 @@ const loadPhones = (searchText) => {
 const displayPhones = phones => {
     const cardContainer = document.getElementById('card-container')
     cardContainer.innerHTML = '';
-    phones = phones.slice(0 , 20)
+    phones = phones.slice(0, 20)
     const wearningText = document.getElementById('worning')
 
-    if(phones.length == 0){
+    if (phones.length == 0) {
         wearningText.classList.remove('d-none')
     }
-    else{
+    else {
         wearningText.classList.add('d-none')
     }
     for (const phone of phones) {
-        const {brand ,phone_name,image,slug} = phone;
+        const {  phone_name, image } = phone;
         const ceratDiv = document.createElement('div')
         ceratDiv.classList.add('col')
         ceratDiv.innerHTML = `
@@ -33,21 +32,23 @@ const displayPhones = phones => {
         `;
         cardContainer.appendChild(ceratDiv)
     }
+    // stop loading 
     loading(false)
 }
 
-document.getElementById('search-phone').addEventListener('click' , function(){
+document.getElementById('search-phone').addEventListener('click', function () {
+    // start loading 
     loading(true)
     const searchText = document.getElementById('search-field').value;
     loadPhones(searchText)
 })
 
-const loading =(isloading) =>{
+const loading = (isloading) => {
     const loaderSection = document.getElementById('loader')
-    if(isloading){
+    if (isloading) {
         loaderSection.classList.remove('d-none')
     }
-    else{
+    else {
         loaderSection.classList.add('d-none')
     }
 }
