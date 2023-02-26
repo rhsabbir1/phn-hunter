@@ -42,6 +42,9 @@
             <div id="worning" class="d-none">
                 <h2 class="text-danger text-center">No Phone found . Please try again</h2>
             </div>
+            <div id="show-all-text" class="text-center my-5 d-none">
+                <div id="btn-show-all" class="btn btn-primary">Show All</div>
+            </div>
         </section>
         <section>
             <div id="loader" class="d-none">
@@ -51,6 +54,30 @@
                     </div>
                 </div>
             </div>
+        </section>
+
+        <!-- modal  -->
+        <section>
+            <!-- Button trigger modal -->
+            <!-- Modal -->
+            <div class="modal fade" id="phoneModal" tabindex="-1" aria-labelledby="phnModalTItle"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="phnModalTItle">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div id="phn-details" class="modal-body">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
         </section>
     </main>
 
